@@ -68,8 +68,8 @@ jobs:
           file: ./Dockerfile
           # Change this to "true" when you are sure the tag is unique. It is set to false
           # to ensure that existing images are not overwritten unintentionally.
-          push: false
-          tags: octopussamples/test:${{ steps.determine_version.outputs.semVer }}
+          push: true
+          tags: octopussamples/octopub-reviews-microservice:${{ steps.determine_version.outputs.semVer }}
 
       - name: Create Octopus Release
         # When the image is being pushed, remove this if property to have the workflow create
@@ -82,4 +82,4 @@ jobs:
           OCTOPUS_URL: https://mattc.octopus.app
           OCTOPUS_SPACE: K8s At Scale
         with:
-          project: octo project
+          project: EKS Reviews Microservice
